@@ -6,6 +6,7 @@ pipeline {
             steps {
                 echo 'Hello World'
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/muhammadgriffin/muhammadgriffin']]])
+                sh 'ls'
             }
         }
         stage('stage_2'){
