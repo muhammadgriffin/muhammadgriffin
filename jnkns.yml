@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/muhammadgriffin/muhammadgriffin']]])
+            }
+        }
+        stage('stage_2'){
+            steps{
+                echo 'Hello from stage 2'
+            }
+        }
+        stage('stage_3'){
+            steps{
+                echo 'Hello from stage 3'
+            }
+        }
+    }
+}
